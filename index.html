@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/MemeGenerator.css" class="">
+        <title>Document</title>
+    </head>
+    <body onload="init()">
+        <header>header</header>
+        <main>
+            main
+            <div class="gallery grid">
+            </div>
+            <div class="inputProperties">
+                <input class = "input-path" type="text" placeholder="file path">
+            </div>
+            <div class="canvas-container">
+                <canvas class="my-canvas" width="500" height="300" 
+                    onmousedown="onMouseDown(event)"></canvas>
+                    <!-- onmousemove = "onMouseMove(event)"
+                    onmouseout = "onMouseOut(event)"
+                    onmouseup = "onMouseUp(event)"> -->
+            </div>
+            <div class="alertSpan"></div>
+        </main>
+        <footer>footer</footer>
+        <script src="js/storageService.js"></script>
+        <script src="js/galleryService.js"></script>
+        <script src="js/memeService.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
