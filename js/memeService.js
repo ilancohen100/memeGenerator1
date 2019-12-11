@@ -1,6 +1,6 @@
 
 var gCurrMeme = { selectedImgId: 5, selectedTxtIdx: 0, txts:
-     [ { line: 'I never eat Falafel', size: 20, align: 'left', color: 'red' } ]}
+     [ { line: 'I never eat Falafel', x: 20 , y: 20, size: 20, align: 'left', color: 'red' } ]}
 var gMemes=[];
 var gNextMemeID;
 function createMeme(selectedImgId,selectedTxtIdx,txts) {
@@ -42,9 +42,22 @@ function getCurrMemeToRender() {
     // return SortedTodos;
     return gCurrMeme;
 }
-function setCurrMemeData(selectedImgId,selectedTxtIdx,txts){
-    gCurrMeme = createMeme(selectedImgId,selectedTxtIdx,txts);
+function setCurrMeme(meme){
+    gCurrMeme = meme;
 }
+function getCurrMeme(){
+    return gCurrMeme;
+}
+// function setCurrMemeTxt(selectedTxtIdx,x,y,text,size,align,color){
+//     // { line: 'I never eat Falafel', x: 20 , y: 20, size: 20, align: 'left', color: 'red' }
+//     gCurrMeme.txts[selectedTxtIdx].line = text;
+//     gCurrMeme.txts[selectedTxtIdx].x = x;
+//     gCurrMeme.txts[selectedTxtIdx].y = y;
+//     gCurrMeme.txts[selectedTxtIdx].size = size;
+//     gCurrMeme.txts[selectedTxtIdx].align = align;
+//     gCurrMeme.txts[selectedTxtIdx].color = color;
+// }
+
 // function findImgById(imgID) {
 //     return gImgs.find(function (item) {
 //         return item.ID === imgID;

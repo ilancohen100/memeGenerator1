@@ -2,7 +2,7 @@ body{
     background-color: lightblue;
 }
 .gallery{
-    height: 80vh;
+    height: 30vh;
 }
 .grid{
     display: grid;

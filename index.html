@@ -13,8 +13,19 @@
             main
             <div class="gallery grid">
             </div>
-            <div class="inputProperties">
-                <input class = "input-path" type="text" placeholder="file path">
+            <div class="text-properties">
+                <input class = "input-text1" type="text" placeholder="your text" onchange="onTextChange(this)">
+                <button class = "btn-size-up btn" onclick="onSizeChange(1)">+</button>
+                <button class = "btn-size-down btn" onclick="onSizeChange(-1)">-</button>
+                <button class = "btn-toggle-txts btn" onclick="onToggleTxts()">toggle</button>
+                <input type="color" name="" id="" onchange="onColorChange(this)" >
+                <input type="color" name="" id="" onchange="onStrokeColorChange(this)" >
+                <input class = "input-font" type="text" placeholder="your text" onchange="onFontFamilyChange(this)">
+                <button class = "btn-txt-up btn" onclick="onYChange(-1)">up</button>
+                <button class = "btn-txt-down btn" onclick="onYChange(1)">down</button>
+                <button class = "btn-txt-left btn" onclick="onXChange(-1)">left</button>
+                <button class = "btn-txt-right btn" onclick="onXChange(1)">right</button>
+                <button class = "btn-add-Line btn" onclick="onAddLine()">add line</button>
             </div>
             <div class="canvas-container">
                 <canvas class="my-canvas" width="500" height="300" 
