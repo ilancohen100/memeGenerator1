@@ -4,6 +4,9 @@ body{
 .gallery{
     height: 30vh;
 }
+.non-active{
+    display:none;
+}
 .grid{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(100px,1fr));

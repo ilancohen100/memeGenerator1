@@ -33,6 +33,21 @@ function createImages() {
     gImgs.push(createImg('img/meme-imgs (square)/004.jpg',['trump','stupid']));
     gImgs.push(createImg('img/meme-imgs (square)/005.jpg',['trump','stupid']));
     gImgs.push(createImg('img/meme-imgs (square)/006.jpg',['trump','stupid']));  
+    gImgs.push(createImg('img/meme-imgs (square)/5.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/8.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/9.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/12.jpg',['trump','stupid']));  
+    gImgs.push(createImg('img/meme-imgs (square)/Ancient-Aliens.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/img5.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/img11.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/img12.jpg',['trump','stupid']));  
+    gImgs.push(createImg('img/meme-imgs (square)/leo.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/meme1.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/One-Does-Not-Simply.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/patrick.jpg',['trump','stupid']));  
+    gImgs.push(createImg('img/meme-imgs (square)/putin.jpg',['trump','stupid']));
+    gImgs.push(createImg('img/meme-imgs (square)/X-Everywhere.jpg',['trump','stupid']));  
+    saveImages();
 }
 
 function getImagesToRender() {

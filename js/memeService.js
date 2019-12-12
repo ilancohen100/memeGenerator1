@@ -1,47 +1,51 @@
 
-var gCurrMeme = { selectedImgId: 5, selectedTxtIdx: 0, txts:
-     [ { line: 'I never eat Falafel', x: 20 , y: 20, size: 20, align: 'left', color: 'red' } ]}
+var gCurrMeme = { selectedImgId: 0, selectedTxtIdx: 0, txts:[]}
 var gMemes=[];
 var gNextMemeID;
-function createMeme(selectedImgId,selectedTxtIdx,txts) {
-    var meme = {
-        ID:gNextID,
-        selectedImgId,
-        selectedTxtIdx,
-        txts
-    }
-   // saveToStorage('meme', gNextMemeID);
-    return meme;
+
+function getDefaultLine(){
+    return { line: 'your line comes here', x: 20 , y: 40, size: 30, align: 'center', color: '#ffffff',strokeColor:'#000000',font:'Impact' };
 }
 
-function saveMemes() {
-    saveToStorage('memes', gMemes);
-}
+// function createMeme(selectedImgId,selectedTxtIdx,txts) {
+//     var meme = {
+//         ID:gNextID,
+//         selectedImgId,
+//         selectedTxtIdx,
+//         getDefaultLine()
+//     }
+//    // saveToStorage('meme', gNextMemeID);
+//     return meme;
+// }
 
-function loadMemesData() {
-    gMemes = loadFromStorage('memes', []);
-    gNextMemeID = loadFromStorage('nextMemeID', 0)
-    if (gNextMemeID.length === 0) createMemes();
-}
+// function saveMemes() {
+//     saveToStorage('memes', gMemes);
+// }
 
-function createMemes() {
-    gMemes = [];
-    gMemes.push(gCurrMeme);
-}
+// function loadMemesData() {
+//     gMemes = loadFromStorage('meme', []);
+//     gNextMemeID = loadFromStorage('nextMemeID', 0)
+//     if (gNextMemeID.length === 0) createMemes();
+// }
 
-function getCurrMemeToRender() {
-    // var filteredTodos = gTodos.filter(function (todo) {
-    //     return ((gStatusFilter === 'all') ||
-    //         (gStatusFilter === 'active' && !todo.isDone) ||
-    //         (gStatusFilter === 'done' && todo.isDone))
-    // });
-    // var SortedTodos;
-    // SortedTodos = filteredTodos.sort(function(a,b){
-    //     return a[gStatusSort]>b[gStatusSort]? 1 : a[gStatusSort]< b[gStatusSort]? -1 : 0;
-    // })
-    // return SortedTodos;
-    return gCurrMeme;
-}
+// function createMemes() {
+//     gMemes = [];
+//     gMemes.push(gCurrMeme);
+// }
+
+// function getCurrMemeToRender() {
+//     // var filteredTodos = gTodos.filter(function (todo) {
+//     //     return ((gStatusFilter === 'all') ||
+//     //         (gStatusFilter === 'active' && !todo.isDone) ||
+//     //         (gStatusFilter === 'done' && todo.isDone))
+//     // });
+//     // var SortedTodos;
+//     // SortedTodos = filteredTodos.sort(function(a,b){
+//     //     return a[gStatusSort]>b[gStatusSort]? 1 : a[gStatusSort]< b[gStatusSort]? -1 : 0;
+//     // })
+//     // return SortedTodos;
+//     return gCurrMeme;
+// }
 function setCurrMeme(meme){
     gCurrMeme = meme;
 }
