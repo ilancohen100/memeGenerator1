@@ -8,39 +8,57 @@
         <title>Document</title>
     </head>
     <body onload="init()">
-        <header>header</header>
+        <header>
+            <div class="flex" >
+                <nav class="container main-nav flex space-between align-center">
+                    <div class="main-logo "><img class = "logo-img" src="img/LOGO/LOGO.png"></div>
+                    <ul class=" main-menu clean-list flex justify-end">
+                        <li><a  href="#" onclick="onNewImage()">Gallery</a></li>
+                        <li><a  href="#" onclick="">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <main>
-            main
             <div class="gallery grid">
             </div>
             <div class="editor non-active">
-                <div class="text-properties">
+                <div class="text-properties flex">
                     <input class = "input-text" type="text" placeholder="your text" onchange="onTextChange(this)">
-                    <button class = "btn-size-up btn" onclick="onSizeChange(1)">+</button>
-                    <button class = "btn-size-down btn" onclick="onSizeChange(-1)">-</button>
-                    <button class = "btn-toggle-lines btn" onclick="onToggleTxts()">toggle</button>
-                    <input class = "input-color" type="color" name="" id="" onchange="onColorChange(this)" >
-                    <input class = "input-stroke-color" type="color" name="" id="" onchange="onStrokeColorChange(this)" >
-                    <select class = "input-font" onchange="onFontFamilyChange(this)"> 
-                        <option value="Impact">Impact</option>
-                        <option value="David">David</option>
-                        <option value="Ariel">Arial</option>
-                    </select>
-                    <button class = "btn-align-left btn" onclick="onAlignClicked('left')">left</button>
-                    <button class = "btn-align-center btn" onclick="onAlignClicked('center')">center</button>
-                    <button class = "btn-align-right btn" onclick="onAlignClicked('right')">right</button>
-                    <button class = "btn-txt-up btn" onclick="onYChange(-1)">up</button>
-                    <button class = "btn-txt-down btn" onclick="onYChange(1)">down</button>
-                    <button class = "btn-txt-left btn" onclick="onXChange(-1)">left</button>
-                    <button class = "btn-txt-right btn" onclick="onXChange(1)">right</button>
-                    <button class = "btn-add-line btn" onclick="onAddLine()">add line</button>
-                    <button class = "btn-delete-line btn" onclick="onDeleteLine()">delete</button>
-                    <button class = "btn-new-image btn" onclick="onNewImage()" >new image</button>
-                    <a href="#" class="btn" onclick="onDownload(this)" download="my-canvas.jpg">Download as jpeg</a>
+                    <div class="top-controls flex justify-center">
+                        <button class = "btn-toggle-lines btnpng" onclick="onToggleTxts()"><img src="img/icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                        <button class = "btn-add-line btnpng" onclick="onAddLine()"><img src="img/icons/add.png"></button>
+                        <button class = "btn-delete-line btnpng" onclick="onDeleteLine()"><img src="img/icons/trash.png"></button>
+                    </div>
+                    <div class="align-controls flex justify-center">
+                        <button class = "btn-size-up btnpng" onclick="onSizeChange(1)"><img src="img/icons/increase font - icon.png"></button>
+                        <button class = "btn-size-down btnpng" onclick="onSizeChange(-1)"><img src="img/icons/decrease font - icon.png"></button>
+                        <button class = "btn-align-left btnpng" onclick="onAlignClicked('left')"><img src="img/icons/align-to-left.png"></button>
+                        <button class = "btn-align-center btnpng" onclick="onAlignClicked('center')"><img src="img/icons/center-text-alignment.png"></button>
+                        <button class = "btn-align-right btnpng" onclick="onAlignClicked('right')"><img src="img/icons/align-to-right.png"></button>
+                    </div>
+                    <div class="color-font-controls flex justify-center">
+                        <select class = "input-font" onchange="onFontFamilyChange(this)"> 
+                            <option value="Impact">Impact</option>
+                            <option value="David">David</option>
+                            <option value="Ariel">Arial</option>
+                        </select>
+                        <input class = "input-color" type="color" name="Fill" id="" onchange="onColorChange(this)" >
+                        <input class = "input-stroke-color" type="color" name="Stroke" id="" onchange="onStrokeColorChange(this)" >
+                    </div>
+                    <div class="move-controls flex justify-center">
+                        <button class = "btn-txt-up btn" onclick="onYChange(-1)">⇧</button>
+                        <button class = "btn-txt-down btn" onclick="onYChange(1)">⇩</button>
+                        <button class = "btn-txt-left btn" onclick="onXChange(-1)">⇦</button>
+                        <button class = "btn-txt-right btn" onclick="onXChange(1)">⇨</button>
+                    </div>
+                    <div class="download-link flex justify-center">
+                        <a href="#" class="btn" onclick="onDownload(this)" download="my-meme.jpg">Download</a>
+                    </div>
                 </div>
                 <div class="canvas-container">
-                    <canvas class="my-canvas" width="500" height="300" crossorigin= 'anonymous'
-                        onmousedown="onMouseDown(event)"></canvas>
+                    <canvas class="my-canvas" width="500" height="300" 
+                        ></canvas>
                         <!-- onmousemove = "onMouseMove(event)"
                         onmouseout = "onMouseOut(event)"
                         onmouseup = "onMouseUp(event)"> -->
@@ -48,7 +66,10 @@
             </div>
             <div class="alertSpan"></div>
         </main>
-        <footer>footer</footer>
+        <footer class="flex column align-center justify-center">
+                <div class="main-logo"><img class = "logo-footer-img" src="img/LOGO/LOGO.png"></div>
+                <small>all rights reserved</small>
+        </footer>
         <script src="js/storageService.js"></script>
         <script src="js/utils.js"></script>
         <script src="js/galleryService.js"></script>

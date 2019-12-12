@@ -1,27 +1,156 @@
 body{
-    background-color: lightblue;
+    background-color:   #e3e3e3;
+}
+button{
+    border-radius: 12px;
+}
+input{
+    font-size: 2rem;
+    border-radius :12px;
+}
+select{
+    font-size: 2rem;
+    border-radius :12px;
+}
+header{
+    background-color: #ff7f00;
+}
+main{
+}
+footer{
+    background-color: #ff7f00;
+}
+.container{
+    width:1000px
+}
+.main-menu a{
+    text-decoration: none;
+    /* text-shadow: 0 1px 0 #1e1e1e; */
+    color: rgba(255, 255, 255, 0.9);
+    font-family: lato-regular;
+    /* font-size: 1rem; */
+    /* font-weight: 700; */
+    /* height : 100%; */
+    /* width :100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 130px;
+}
+.main-logo{
+    
+}
+.logo-img{
+    height:80px;
+    flex-grow: 1;
+}
+.logo-footer-img{
+    height:50px;
 }
 .gallery{
-    height: 30vh;
-}
-.non-active{
-    display:none;
-}
-.grid{
-    display: grid;
+     height: 60vh;
     grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
     grid-gap: 10px;
+}
+/* flex helpers*/
+.flex {
+    display: flex;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+.space-around{
+    justify-content: space-around;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-end{
+    justify-content: end;
+}
+.align-center {
+    align-items: center;
+}
+.align-start{
+    align-items: flex-start;
+}
+.self-center{
+    align-self: center;
+}
+
+
+/* list helpers */
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.grid{
+    display: grid;
+}
+.non-active{
+    display: none;
 }
 .galleryImage{
     max-height:100px;
     cursor: pointer;
 }
 .canvas-container{
-    background-color: lightgoldenrodyellow;
+    background-color: #e3e3e3;
     padding: 10px;
 }
 .my-canvas {
     margin: 20px auto;
     border: 1px solid blue;
     display: block;
+
+}
+.btnpng img{
+    width: 50px;
+    height: 50px;
+    background-color: var(--white);
+}
+.btn{
+    width: 50px;
+    height: 50px;
+    font-size : 2rem;
+}
+.editor{
+    flex-direction:row-reverse
+}
+.text-properties{
+    display:flex;
+    flex-direction:column;
+}
+.canvas-container{
+
+}
+
+@media (max-width: 500px) {
+
+
+    .logo-img{
+        height:40px;
+    }
+
+    .editor{
+        flex-direction:column-reverse;
+    }
+    .gallery{
+        height: 150vh;
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    grid-gap: 10px;
+    }
 }

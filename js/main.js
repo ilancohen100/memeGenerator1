@@ -21,6 +21,9 @@ function initCanvas(){
     gCanvas = document.querySelector('.my-canvas');
     gCtx = gCanvas.getContext('2d')
 }
+function toggleMenu(){
+    
+}
 
 function renderGallery(){
     var elGallery = document.querySelector(".gallery");
@@ -39,13 +42,15 @@ function renderGallery(){
     elGallery.innerHTML = strImgs.join("");
 }
 function renderControls(){
+    var currLine;
     if (gDisplayedMeme.txts.length === 0){
-        gDisplayedMeme.txts.push(getDefaultLine());
-        if(gLoadedImg){
-            gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx].x= getXByAlignment();
-        }
+       // gDisplayedMeme.txts.push(getDefaultLine());
+       currLine = getDefaultLine();
     }
-    var currLine = gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx]
+    else{
+        currLine = gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx]
+    }
+    
     document.querySelector('.input-text').value = currLine.line;
     document.querySelector('.input-color').value = currLine.color;
     document.querySelector('.input-stroke-color').value = currLine.strokeColor;
@@ -88,6 +93,7 @@ function drawImageActualSize() {
 }
 function afterImageLoaded(){
     //update line x according to proportions
+    gDisplayedMeme.txts.push(getDefaultLine());
     gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx].x = getXByAlignment();
     markCurrLine();
 }
@@ -102,10 +108,12 @@ function markCurrLine(){
     setTimeout(unmarkCurrLine,3000,gDisplayedMeme.selectedTxtIdx,currColor,elAdd,elToggle);
 }
 function unmarkCurrLine(lineIdx,origColor,elAdd,elToggle){
-    gDisplayedMeme.txts[lineIdx].color = origColor;
-    elAdd.disabled = false;
-    elToggle.disabled = false
-    renderMeme(); 
+    if(gDisplayedMeme.txts.length >0){
+        gDisplayedMeme.txts[lineIdx].color = origColor;
+        elAdd.disabled = false;
+        elToggle.disabled = false
+        renderMeme(); 
+    }
 }
 
  
@@ -120,11 +128,13 @@ function onImageSelected(elImg){
     document.querySelector('.gallery').classList.remove('grid');
     document.querySelector('.gallery').classList.add('non-active');
     document.querySelector('.editor').classList.remove('non-active');
+    document.querySelector('.editor').classList.add('flex');
    // document.querySelector('.input-path').value = 
 }
 function onNewImage(){
     document.querySelector('.gallery').classList.remove('non-active');
     document.querySelector('.gallery').classList.add('grid');
+    document.querySelector('.editor').classList.remove('flex');
     document.querySelector('.editor').classList.add('non-active');
 }
 
@@ -188,16 +198,22 @@ function onXChange(diff){
 
 function onDeleteLine(){
     gDisplayedMeme.txts.splice(gDisplayedMeme.selectedTxtIdx,1);
-    if(gDisplayedMeme.selectedTxtIdx>0){
-        gDisplayedMeme.selectedTxtIdx--;
+    if(gDisplayedMeme.txts.length>0){
+        if (gDisplayedMeme.selectedTxtIdx>0){
+            gDisplayedMeme.selectedTxtIdx--;
+        }
+        setCurrMeme(gDisplayedMeme);
+        renderControls();
+        renderMeme();
+        markCurrLine();
     }
     else{
         document.querySelector('.btn-delete-line').disabled = true;
+        setCurrMeme(gDisplayedMeme);
+        renderControls();
+        renderMeme();
     }
-    setCurrMeme(gDisplayedMeme);
-    renderControls();
-    renderMeme();
-    markCurrLine();
+  
 }
 function onAddLine(){
     var yCalc = Math.floor( (gLoadedImg.naturalHeight/2) + gDisplayedMeme.txts.length*NEWLINEINDENTATION) ;
@@ -216,9 +232,13 @@ function onAddLine(){
             break;
     }
     //get curr line properties
-    var currLine = gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx];
-    gDisplayedMeme.txts.push({ line: 'your text comes here', x: getXByAlignment() , y: yCalc, size: currLine.size, align: currLine.align, color: currLine.color,strokeColor:currLine.strokeColor,font:currLine.font}) ;
-    gDisplayedMeme.selectedTxtIdx++;
+  //  var currLine = gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx];
+    gDisplayedMeme.txts.push(getDefaultLine()) ; 
+    if(gDisplayedMeme.txts.length > 1){
+        gDisplayedMeme.selectedTxtIdx++;
+    }
+    gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx].y = yCalc;
+    gDisplayedMeme.txts[gDisplayedMeme.selectedTxtIdx].x = getXByAlignment();
     setCurrMeme(gDisplayedMeme);
     renderControls();
     renderMeme();
